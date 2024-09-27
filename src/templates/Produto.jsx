@@ -1,7 +1,7 @@
 import { useState } from "react";
-export default function Produto(props){
+export default function Produto(props) {
     const [quantidade, setQuantidade] = useState(1);
-    return(
+    return (
         <div style={{
             width: '200px',
             height: '300px',
@@ -13,17 +13,17 @@ export default function Produto(props){
             marginBottom: '40px'
         }}>
             <div style={{
-                width:'100px',
+                width: '100px',
                 height: '100px',
             }}
-            id='imagem-produto'>
+                id='imagem-produto'>
                 <img style={{
-                     width:"100%",
-                     height:"100%"
-                }} src={props.produto?.image || ''} 
-                   alt={props.produto?.description || ''}/>
+                    width: "100%",
+                    height: "100%"
+                }} src={props.produto?.image || ''}
+                    alt={props.produto?.description || ''} />
             </div>
-            <div style={{height: '40px'}} id='titulo-produto'>
+            <div style={{ height: '40px' }} id='titulo-produto'>
                 <p><strong>{props.produto?.title.substring(0, 20)}</strong></p>
             </div>
             <div style={{
@@ -32,16 +32,16 @@ export default function Produto(props){
                 <p><strong>R$ {props.produto?.price}</strong></p>
             </div>
             <div style={{
-                
-            }}id="opinioes-produoto">
+
+            }} id="opinioes-produoto">
                 <span>{((props.produto ? props.produto.rating.rate : 0) * 20) || 0}% gostaram</span>
             </div>
             <div style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
                 id='quantidade-selecionada'>
                 <p style={{
                     display: 'flex',
@@ -51,30 +51,49 @@ export default function Produto(props){
                     padding: '0px',
                     marginRight: '10px',
                 }}>Quantidade:</p>
-                <input 
+                <input
                     style={{
                         width: '40px',
                         border: '0px',
                         outline: 'none',
                     }}
-                    type="number" 
-                    value={quantidade} 
-                    onChange={(e) => setQuantidade(e.target.value)} 
+                    type="number"
+                    value={quantidade}
+                    onChange={(e) => setQuantidade(e.target.value)}
                     step={1}
-                    min={1}/>
+                    min={1} />
             </div>
             <div id='botao-comprar'>
-                <button 
+                <button
                     style={{
                         backgroundColor: 'rgb(255,60,60)',
                         color: 'white',
                         border: '0px',
-                        borderRadius:'10px',
+                        borderRadius: '10px',
                         height: '40px',
                         width: '120px',
                     }}
-                    type='button'>
-                        Comprar
+                    type='button' onClick={() => {
+                        const produtoAdd = {                
+                            id: props.produto.id,
+                            titulo: props.produto.title,
+                            descricao: props.produto.description,
+                            quantidade: quantidade,
+                            preco: props.produto.price
+                        }
+                        const produtoExiste = props.listaProdutosCarrinho.find(item =>
+                            item.id === produtoAdd.id
+                        );                              //se quiser fazer a parte de validar apenas um produto no carrinho, pode, fica massa!
+                        if (!produtoExiste) {
+                            const novaListaCarrinho = [...props.listaProdutosCarrinho, produtoAdd];
+                            props.setListaProdutos(novaListaCarrinho);
+                            localStorage.setItem('carrinho', JSON.stringify(novaListaCarrinho));
+                        }
+                        else {
+                            window.alert("O produto de código " + produtoAdd.id + " ja está no seu carrinho !");
+                        }
+                    }}>
+                    Comprar
                 </button>
             </div>
         </div>
