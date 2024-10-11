@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/BCCLP2Prova1BREFEITO/static/css/main.eefc237f.css",
-    "main.js": "/BCCLP2Prova1BREFEITO/static/js/main.f77dddb3.js",
-    "static/media/ricardoeletro.png": "/BCCLP2Prova1BREFEITO/static/media/ricardoeletro.b6832e7dca74d29262a5.png",
-    "index.html": "/BCCLP2Prova1BREFEITO/index.html",
-    "main.eefc237f.css.map": "/BCCLP2Prova1BREFEITO/static/css/main.eefc237f.css.map",
-    "main.f77dddb3.js.map": "/BCCLP2Prova1BREFEITO/static/js/main.f77dddb3.js.map"
+    "main.css": "/Ricardo-Eletro-Refeito/static/css/main.eefc237f.css",
+    "main.js": "/Ricardo-Eletro-Refeito/static/js/main.fc7fba70.js",
+    "static/media/ricardoeletro.png": "/Ricardo-Eletro-Refeito/static/media/ricardoeletro.b6832e7dca74d29262a5.png",
+    "index.html": "/Ricardo-Eletro-Refeito/index.html",
+    "main.eefc237f.css.map": "/Ricardo-Eletro-Refeito/static/css/main.eefc237f.css.map",
+    "main.fc7fba70.js.map": "/Ricardo-Eletro-Refeito/static/js/main.fc7fba70.js.map"
   },
   "entrypoints": [
     "static/css/main.eefc237f.css",
-    "static/js/main.f77dddb3.js"
+    "static/js/main.fc7fba70.js"
   ]
 }
